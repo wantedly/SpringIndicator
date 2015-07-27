@@ -396,11 +396,15 @@ public extension SpringIndicator {
             }
         }
         
-        public override func willMoveToSuperview(newSuperview: UIView!) {
+        public override func willMoveToSuperview(newSuperview: UIView?) {
             super.willMoveToSuperview(newSuperview)
             
-            targetView = newSuperview as? UIScrollView
-            addObserver()
+            if let newSuperview = newSuperview {
+                targetView = newSuperview as? UIScrollView
+                addObserver()
+            } else {
+                removeObserver()
+            }
         }
         
         public override func didMoveToSuperview() {

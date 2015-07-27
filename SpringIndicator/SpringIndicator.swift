@@ -413,11 +413,6 @@ public extension SpringIndicator {
             layoutIfNeeded()
         }
         
-        public override func removeFromSuperview() {
-            removeObserver()
-            super.removeFromSuperview()
-        }
-        
         weak var target: AnyObject?
         public override func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) {
             super.addTarget(target, action: action, forControlEvents: controlEvents)
